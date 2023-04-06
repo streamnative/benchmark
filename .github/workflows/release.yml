@@ -34,4 +34,4 @@ jobs:
           context: .
           file: docker/Dockerfile.build
           push: true
-          tags: streamnative/benchmark:${{ github.ref }}
+          tags: streamnative/benchmark:${{ github.head_ref || github.ref_name }}
