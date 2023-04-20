@@ -1,4 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://streamnative.github.io/benchmark/'
 languageCode = 'en-us'
 title = 'Benchmark report of StreamNative pulsar release'
 theme = 'moments'
