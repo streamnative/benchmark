@@ -5,8 +5,7 @@ theme = 'moments'
 [params]
     title = "StreamNative Pulsar Benchmark Report"
     signature = "Unleash the Power of Apache Pulsar"
-    cover = "/img/cover.png"
-
+    cover = "img/cover.png"
     name = "StreamNative Bot"
     avatar = "/img/streamnativebot.png"
 
