@@ -3,9 +3,9 @@ languageCode = 'en-us'
 title = 'Benchmark report of StreamNative pulsar release'
 theme = 'moments'
 [params]
-    title = "StreamNative pulsar Benchmark Report"
+    title = "StreamNative Pulsar Benchmark Report"
     signature = "Unleash the Power of Apache Pulsar"
-    cover = "https://global-uploads.webflow.com/638a1dc72083d166ed6e3d76/63a189a91daf140e231370d1_shape-header-home.svg"
+    cover = "/img/cover.png"
 
     name = "StreamNative Bot"
     avatar = "/img/streamnativebot.png"
