@@ -27,7 +27,7 @@ commonConfig: |
   security.protocol=SASL_SSL
   sasl.login.callback.handler.class=io.streamnative.pulsar.handlers.kop.security.oauth.OauthLoginCallbackHandler
   sasl.mechanism=OAUTHBEARER
-  sasl.jaas.config=org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required oauth.issuer.url="https://auth.sncloud-stg.dev/" oauth.credentials.url="" oauth.audience="urn:sn:pulsar:o-x388b:stress"
+  sasl.jaas.config=org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required oauth.issuer.url="https://auth.sncloud-stg.dev/" oauth.credentials.url="test" oauth.audience="urn:sn:pulsar:o-x388b:stress"
 
 producerConfig: |
   enable.idempotence=true
