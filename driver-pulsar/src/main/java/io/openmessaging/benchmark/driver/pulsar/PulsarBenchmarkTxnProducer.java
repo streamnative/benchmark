@@ -20,7 +20,6 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 import org.apache.pulsar.client.api.Producer;
 import org.apache.pulsar.client.api.PulsarClient;
-import org.apache.pulsar.client.api.PulsarClientException;
 import org.apache.pulsar.client.api.TypedMessageBuilder;
 import org.apache.pulsar.client.api.transaction.Transaction;
 
@@ -53,10 +52,6 @@ public class PulsarBenchmarkTxnProducer implements BenchmarkProducer {
     }
 
     private CompletableFuture<Transaction> buildTransaction() {
-        try {
-            return client.newTransaction().withTransactionTimeout(5, TimeUnit.HOURS).build();
-        } catch (PulsarClientException e) {
-            throw new RuntimeException(e);
-        }
+        return client.newTransaction().withTransactionTimeout(5, TimeUnit.HOURS).build();
     }
 }
