@@ -27,7 +27,7 @@ fi
 JVM_MEM="${HEAP_OPTS} -XX:+UseG1GC"
 JVM_GC_LOG=" -XX:+PrintGCDetails -XX:+PrintGCApplicationStoppedTime  -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=64m  -Xloggc:/dev/shm/benchmark-client-gc_%p.log"
 
-if [ -n "$DUMP_ON_OOM"]; then
+if [ -n "$DUMP_ON_OOM" ]; then
     JVM_MEM="${JVM_MEM} -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/benchmark/benchmark-client-heapdump.hprof"
 fi
 
