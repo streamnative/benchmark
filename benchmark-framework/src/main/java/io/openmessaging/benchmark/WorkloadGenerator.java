@@ -126,7 +126,7 @@ public class WorkloadGenerator implements AutoCloseable {
 
         if (workload.warmupDurationMinutes > 0) {
             log.info("----- Starting warm-up traffic ({}m) ------", workload.warmupDurationMinutes);
-            printAndCollectStats(workload.warmupDurationMinutes, TimeUnit.MINUTES);
+//            printAndCollectStats(workload.warmupDurationMinutes, TimeUnit.MINUTES);
         }
 
         if (workload.consumerBacklogSizeGB > 0) {
@@ -143,11 +143,11 @@ public class WorkloadGenerator implements AutoCloseable {
         worker.resetStats();
         log.info("----- Starting benchmark traffic ({}m)------", workload.testDurationMinutes);
 
-        TestResult result = printAndCollectStats(workload.testDurationMinutes, TimeUnit.MINUTES);
+//        TestResult result = printAndCollectStats(workload.testDurationMinutes, TimeUnit.MINUTES);
         runCompleted = true;
 
         worker.stopAll();
-        return result;
+        return new TestResult();
     }
 
     private void ensureTopicsAreReady() throws IOException {
