@@ -590,9 +590,9 @@ public class WorkloadGenerator implements AutoCloseable {
     private static final DecimalFormat throughputFormat = new PaddingDecimalFormat("0.0", 4);
     private static final DecimalFormat dec = new PaddingDecimalFormat("0.0", 4);
 
-    private static double microsToMillis(double timeInMicros) {
-        return timeInMicros / 1000.0;
-    }
+    //    private static double microsToMillis(double timeInMicros) {
+    //        return timeInMicros / 1000.0;
+    //    }
 
     private static double microsToMillis(long timeInMicros) {
         return timeInMicros / 1000.0;
