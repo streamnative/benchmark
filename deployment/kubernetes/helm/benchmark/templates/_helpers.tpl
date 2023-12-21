@@ -36,6 +36,6 @@ Create chart name and version as used by the chart label.
 {{- $nodeCount := .numWorkers | int }}
   {{- range $index0 := until $nodeCount -}}
     {{- $index1 := $index0 | add1 -}}
-http://{{ $workloadName }}-{{ $index0 }}.{{ $workloadName }}:8080{{ if ne $index1 $nodeCount }},{{ end }}
+http://{{ $workloadName }}-worker-{{ $index0 }}.{{ $workloadName }}-worker:8080{{ if ne $index1 $nodeCount }},{{ end }}
   {{- end -}}
 {{- end -}}
