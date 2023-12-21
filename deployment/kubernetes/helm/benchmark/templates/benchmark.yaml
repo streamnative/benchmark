@@ -38,7 +38,7 @@ spec:
           value: '-Xms4G -Xmx4G'
       command: ["sh", "-c"]
       args:
-        - >-
+        - |
           webServiceUrl=$(grep -oP 'webServiceUrl=\K[^ ]+' /mnt/toolset/config/client.conf)
           brokerServiceURL=$(grep -oP 'brokerServiceURL=\K[^ ]+' /mnt/toolset/config/client.conf)
           authPlugin=$(grep -oP 'authPlugin=\K[^ ]+' /mnt/toolset/config/client.conf)
