@@ -43,8 +43,10 @@ spec:
           brokerServiceURL=pulsar+ssl://{{ .Values.brokerUrl }}:6651
           authPlugin=$(grep -oP 'authPlugin=\K[^ ]+' /mnt/toolset/config/client.conf)
           authParams=$(grep -oP 'authParams=\K[^ ]+' /mnt/toolset/config/client.conf)
+          clusterName={{ .Values.cluster }}
           sed -i "s|serviceUrl: pulsar://localhost:6650|serviceUrl: $brokerServiceURL|" driver-pulsar/pulsar.yaml
           sed -i "s|httpUrl: http://localhost:8080|httpUrl: $webServiceUrl|" driver-pulsar/pulsar.yaml
+          sed -i "s|clusterName: local|clusterName: $clusterName|" driver-pulsar/pulsar.yaml
           sed -i "s|plugin:|plugin: $authPlugin|" driver-pulsar/pulsar.yaml
           sed -i "s|data:|data: '$authParams'|" driver-pulsar/pulsar.yaml
           echo "bin/benchmark --drivers {{ .Values.driver }} --workers $WORKERS {{ .Values.workload }}" > example-run.sh &&
