@@ -26,3 +26,5 @@ driverMemoryLimit: 2048Mi
 #workersMemoryLimit: 2048Mi
 
 secretName: ut-test-toolset-config
+workerName: stress-test-omb
+cluster: ut-test
