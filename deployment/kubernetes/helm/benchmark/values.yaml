@@ -24,3 +24,5 @@ driverMemoryLimit: 2048Mi
 
 #workersMemoryRequest: 512Mi
 #workersMemoryLimit: 2048Mi
+
+secretName: ut-test-toolset-config
