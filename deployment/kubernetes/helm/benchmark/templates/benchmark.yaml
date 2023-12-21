@@ -39,14 +39,14 @@ spec:
       command: ["sh", "-c"]
       args:
         - >
-          webServiceUrl=$(grep -oP 'webServiceUrl=\K[^ ]+' /mnt/toolset/config/client.conf)
-          brokerServiceURL=$(grep -oP 'brokerServiceURL=\K[^ ]+' /mnt/toolset/config/client.conf)
-          authPlugin=$(grep -oP 'authPlugin=\K[^ ]+' /mnt/toolset/config/client.conf)
-          authParams=$(grep -oP 'authParams=\K[^ ]+' /mnt/toolset/config/client.conf)
-          sed -i "s|serviceUrl: pulsar://localhost:6650|serviceUrl: $brokerServiceURL|" {{ .Values.driver }}
-          sed -i "s|httpUrl: http://localhost:8080|httpUrl: $webServiceUrl|" {{ .Values.driver }}
-          sed -i "s|plugin:|plugin: $authPlugin|" {{ .Values.driver }}
-          sed -i "s|data:|data: $authParams|" {{ .Values.driver }}
+#          webServiceUrl=$(grep -oP 'webServiceUrl=\K[^ ]+' /mnt/toolset/config/client.conf)
+#          brokerServiceURL=$(grep -oP 'brokerServiceURL=\K[^ ]+' /mnt/toolset/config/client.conf)
+#          authPlugin=$(grep -oP 'authPlugin=\K[^ ]+' /mnt/toolset/config/client.conf)
+#          authParams=$(grep -oP 'authParams=\K[^ ]+' /mnt/toolset/config/client.conf)
+#          sed -i "s|serviceUrl: pulsar://localhost:6650|serviceUrl: $brokerServiceURL|" {{ .Values.driver }}
+#          sed -i "s|httpUrl: http://localhost:8080|httpUrl: $webServiceUrl|" {{ .Values.driver }}
+#          sed -i "s|plugin:|plugin: $authPlugin|" {{ .Values.driver }}
+#          sed -i "s|data:|data: $authParams|" {{ .Values.driver }}
           echo "bin/benchmark --drivers {{ .Values.driver }} --workers $WORKERS {{ .Values.workload }}" > example-run.sh &&
           tail -f /dev/null
       volumeMounts:
