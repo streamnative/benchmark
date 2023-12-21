@@ -39,8 +39,8 @@ spec:
       command: ["sh", "-c"]
       args:
         - |
-          webServiceUrl=$(grep -oP 'webServiceUrl=\K[^ ]+' /mnt/toolset/config/client.conf)
-          brokerServiceURL=$(grep -oP 'brokerServiceURL=\K[^ ]+' /mnt/toolset/config/client.conf)
+          webServiceUrl=https://{{ .Values.brokerUrl }}
+          brokerServiceURL=pulsar+ssl://{{ .Values.brokerUrl }}:6651
           authPlugin=$(grep -oP 'authPlugin=\K[^ ]+' /mnt/toolset/config/client.conf)
           authParams=$(grep -oP 'authParams=\K[^ ]+' /mnt/toolset/config/client.conf)
           sed -i "s|serviceUrl: pulsar://localhost:6650|serviceUrl: $brokerServiceURL|" driver-pulsar/pulsar.yaml
