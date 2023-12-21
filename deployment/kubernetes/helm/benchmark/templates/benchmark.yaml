@@ -52,8 +52,14 @@ spec:
       volumeMounts:
         - mountPath: /mnt/toolset/config
           name: config
+        - mountPath: /mnt/secrets
+          name: broker-secret-pulsarcluster-{{ .Values.cluster }}
   volumes:
     - name: config
       secret:
         defaultMode: 420
         secretName: {{ .Values.secretName }}
+    - name: broker-secret-pulsarcluster-{{ .Values.cluster }}
+      secret:
+        defaultMode: 420
+        secretName: pulsarcluster-{{ .Values.cluster }}
