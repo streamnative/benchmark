@@ -46,7 +46,7 @@ spec:
           sed -i "s|serviceUrl: pulsar://localhost:6650|serviceUrl: $brokerServiceURL|" driver-pulsar/pulsar.yaml
           sed -i "s|httpUrl: http://localhost:8080|httpUrl: $webServiceUrl|" driver-pulsar/pulsar.yaml
           sed -i "s|plugin:|plugin: $authPlugin|" driver-pulsar/pulsar.yaml
-          sed -i "s|data:|data: $authParams|" driver-pulsar/pulsar.yaml
+          sed -i "s|data:|data: '$authParams'|" driver-pulsar/pulsar.yaml
           echo "bin/benchmark --drivers {{ .Values.driver }} --workers $WORKERS {{ .Values.workload }}" > example-run.sh &&
           chmod +x example.sh
           tail -f /dev/null
