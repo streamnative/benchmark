@@ -49,9 +49,9 @@ spec:
           sed -i "s|data:|data: $authParams|" {{ .Values.driver }}
           echo "bin/benchmark --drivers {{ .Values.driver }} --workers $WORKERS {{ .Values.workload }}" > example-run.sh &&
           tail -f /dev/null
-    volumeMounts:
-      - mountPath: /mnt/toolset/config
-        name: config
+      volumeMounts:
+        - mountPath: /mnt/toolset/config
+          name: config
   volumes:
     - name: config
       secret:
