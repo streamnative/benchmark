@@ -33,6 +33,14 @@ spec:
         app: {{ .Release.Name }}
         component: worker
     spec:
+      affinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchLabels:
+                  cloud.streamnative.io/pulsar-cluster: {{ .Values.cluster }}
+                  cloud.streamnative.io/role: pulsar-broker
+              topologyKey: failure-domain.beta.kubernetes.io/zone
       containers:
         - name: {{ .Release.Name }}-worker
           imagePullPolicy: {{ .Values.imagePullPolicy }}
