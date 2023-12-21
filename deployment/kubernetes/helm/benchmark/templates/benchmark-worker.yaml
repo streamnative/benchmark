@@ -59,8 +59,22 @@ spec:
           ports:
             - containerPort: 8080
             - containerPort: 8081
----
 
+          volumeMounts:
+            - mountPath: /mnt/toolset/config
+              name: config
+            - mountPath: /mnt/secrets
+              name: broker-secret-pulsarcluster-{{ .Values.cluster }}
+      volumes:
+        - name: config
+          secret:
+            defaultMode: 420
+            secretName: {{ .Values.secretName }}
+        - name: broker-secret-pulsarcluster-{{ .Values.cluster }}
+          secret:
+            defaultMode: 420
+            secretName: pulsarcluster-{{ .Values.cluster }}
+---
 apiVersion: v1
 kind: Service
 metadata:
