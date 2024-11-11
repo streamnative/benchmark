@@ -20,7 +20,8 @@ RUN mvn install -DskipTests
 
 # Create the benchmark image
 FROM alpine:latest
-RUN apk update && apk add mvn curl vim
+RUN apk update
+RUN apk add git alpine-sdk util-linux cmake autoconf automake libtool openjdk17 maven curl bash tar vim
 
 COPY --from=build /benchmark/package/target/openmessaging-benchmark-*-SNAPSHOT-bin.tar.gz /
 RUN mkdir /benchmark && tar -xzf openmessaging-benchmark-*-SNAPSHOT-bin.tar.gz -C /benchmark --strip=1
