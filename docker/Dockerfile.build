@@ -19,7 +19,10 @@ WORKDIR /benchmark
 RUN mvn install -DskipTests
 
 # Create the benchmark image
-FROM eclipse-temurin:17.0.6_10-jdk
+FROM alpine:latest
+RUN apk update
+RUN apk add git alpine-sdk util-linux cmake autoconf automake libtool openjdk17 maven curl bash tar vim
+
 COPY --from=build /benchmark/package/target/openmessaging-benchmark-*-SNAPSHOT-bin.tar.gz /
 RUN mkdir /benchmark && tar -xzf openmessaging-benchmark-*-SNAPSHOT-bin.tar.gz -C /benchmark --strip=1
 RUN rm /openmessaging-benchmark-*-SNAPSHOT-bin.tar.gz
